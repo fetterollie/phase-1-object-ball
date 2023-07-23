@@ -119,4 +119,23 @@ const gameObject = {
     },
 }
 
-console.log(gameObject);
+// console.log('gameObject: ', gameObject);
+
+function numPointsScored(playerName) {
+    let game = gameObject;
+    for (let gameKey in game) {
+      // console.log("gameKey:", gameKey)
+      let teamObj = game[gameKey]
+      for (let teamKey in teamObj) {
+        // console.log("teamKey:", teamKey)
+        if (teamKey === 'players') {
+          // console.log("YOOOOO:", game[gameKey][teamKey][playerName]["points"])
+          let numPoints = game[gameKey][teamKey][playerName]["points"]
+          // console.log(numPoints)
+          return numPoints;
+        }
+      }
+    } 
+  };
+
+numPointsScored('Alan Anderson');
