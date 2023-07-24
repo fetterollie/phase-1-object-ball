@@ -178,3 +178,21 @@ function teamColors(name) {
   }
 
 teamColors('Brooklyn Nets')
+
+// a function, teamNames, that operates on the game object to return an array of the team names.
+
+function teamNames(gameObject) {
+    let game = gameObject;
+  
+    let teams = []
+    
+    for (gameKey in game) {
+      // console.log("gameKey:", gameKey)
+      // console.log(game[gameKey]["teamName"])
+      teams.push(game[gameKey]["teamName"])
+    }
+    console.log(teams)
+    return teams
+  }
+  
+  teamNames(gameObject)
