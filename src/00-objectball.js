@@ -196,3 +196,38 @@ function teamNames(gameObject) {
   }
   
   teamNames(gameObject)
+
+  // a function, playerNumbers, that takes in an argument of a team name and returns an array of the jersey numbers for that team
+  function playerNumbers(teamName) {
+    let game = gameObject;
+    let jerseyNumbers = []
+    for (gameKey in game) {
+      // console.log("gameKey:", gameKey);
+      let teamObj = game[gameKey];
+      for (teamKey in teamObj) {
+        // console.log("teamKey:", teamKey)
+        let name = teamObj[teamKey];
+        if (name === teamName) {
+          // console.log('getting somewhere')
+          let players = game[gameKey]['players']
+          for (playerKey in players) {
+            // console.log("playerKey:", playerKey)
+            let playerObj = players[playerKey]
+            for (playerAttr in playerObj) {
+              // console.log(playerAttr)
+              if (playerAttr === 'number') {
+                let jerseyNum = playerObj[playerAttr]
+                // console.log(jerseyNum)
+                jerseyNumbers.push(jerseyNum)
+              }
+            }
+          }
+        }
+      }
+    }
+    console.log(jerseyNumbers)
+    return jerseyNumbers
+  };
+  
+
+playerNumbers("Brooklyn Nets")
