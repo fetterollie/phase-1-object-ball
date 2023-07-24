@@ -121,6 +121,7 @@ const gameObject = {
 
 // console.log('gameObject: ', gameObject);
 
+// function to return number of points that player scored
 function numPointsScored(playerName) {
     let game = gameObject;
     for (let gameKey in game) {
@@ -138,4 +139,42 @@ function numPointsScored(playerName) {
     } 
   };
 
-numPointsScored('Alan Anderson');
+// numPointsScored('Alan Anderson');
+
+// function that returns the player's shoe size
+function shoeSize(playerName) {
+    let game = gameObject;
+    for (let gameKey in game) {
+      // console.log("gameKey:", gameKey)
+      let teamObj = game[gameKey]
+      for (let teamKey in teamObj) {
+        // console.log("teamKey:", teamKey)
+        if (teamKey === 'players') {
+          // console.log("YOOOOO:", game[gameKey][teamKey][playerName]["shoeSize"])
+          let size = game[gameKey][teamKey][playerName]["shoeSize"]
+          // console.log(size)
+          return size;
+        }
+      }
+    } 
+  };
+
+// function that returns team colors given teamName
+function teamColors(name) {
+    let game = gameObject;
+    for (gameKey in game) {
+        // console.log("gameKey:", gameKey)
+        let teamObj = game[gameKey]
+        for (let teamKey in teamObj) {
+            // console.log("teamKey:", teamKey)
+          let nameString = teamObj[teamKey]
+          if (game[gameKey][teamKey] === name) {
+            console.log(game[gameKey]["colors"])
+            let colors = game[gameKey]["colors"]
+            return colors
+          }
+        }
+    }
+  }
+
+teamColors('Brooklyn Nets')
