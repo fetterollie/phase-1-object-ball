@@ -169,7 +169,7 @@ function teamColors(name) {
             // console.log("teamKey:", teamKey)
           let nameString = teamObj[teamKey]
           if (game[gameKey][teamKey] === name) {
-            console.log(game[gameKey]["colors"])
+            // console.log(game[gameKey]["colors"])
             let colors = game[gameKey]["colors"]
             return colors
           }
@@ -191,7 +191,7 @@ function teamNames(gameObject) {
       // console.log(game[gameKey]["teamName"])
       teams.push(game[gameKey]["teamName"])
     }
-    console.log(teams)
+    // console.log(teams)
     return teams
   }
   
@@ -225,9 +225,42 @@ function teamNames(gameObject) {
         }
       }
     }
-    console.log(jerseyNumbers)
+    // console.log(jerseyNumbers)
     return jerseyNumbers
   };
   
 
 playerNumbers("Brooklyn Nets")
+
+// Build a function, playerStats, that takes in an argument of a player's name 
+// and returns an object of that player's stats.
+
+function playerStats(playerName) {
+  let game = gameObject
+  let playerStatistics = {}
+  for (gameKey in game) {
+    // console.log("gameKey:", gameKey);
+    let teamObj = game[gameKey]
+    for (teamKey in teamObj) {
+      // console.log("teamKey:", teamKey);
+    }
+    let players = teamObj[teamKey]
+    // console.log("players:", players)
+    for (player in players) {
+      // console.log(player)
+      let playerStats = players[player]
+      if (playerName === player) {
+        for (stat in playerStats) {
+          // console.log("stat:", stat)
+          let value = playerStats[stat]
+          // console.log("value:", value)
+          playerStatistics[stat] = value;
+          // person['height'] = 5.4;
+        }
+      }
+    }
+  }
+  console.log(playerStatistics)
+};
+
+playerStats("Alan Anderson")
